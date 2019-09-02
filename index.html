@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bootstrap搭建网页</title>
+    <link rel="stylesheet" href="./bootstrap-3.3.7-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="./font_rqsbcg9luej/iconfont.css">
+    <style>
+        body,
+        ul,
+        li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .container{
+            position:relative;
+            z-index: 100;
+        }
+        .masthead {
+            position: relative;
+            text-align: center;
+            /* z-index:100; */
+            background: linear-gradient(45deg, #020031 0, #6d3353 100%);
+            padding: 60px 0 80px;
+        }
+
+        .masthead::after {
+            content: '';
+            position:absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-image: url('./img/bs-docs-masthead-pattern.png');
+        }
+
+        .masthead ul li {
+            list-style: none;
+        }
+
+        .masthead ul li a {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .masthead h1,
+        .masthead p {
+            color: #fff;
+        }
+
+        .masthead h1 {
+            font-size: 60px;
+            font-weight: 700;
+        }
+
+        @media screen and (min-width: 768px) {
+            .masthead {
+                padding: 90px 0 110px;
+            }
+
+            .masthead h1 {
+                font-size: 90px;
+            }
+        }
+
+        .bc-social-buttons {
+            margin-left: 0;
+            margin-bottom: 0;
+            padding-left: 0;
+            text-align: center;
+            padding-bottom: 10px;
+            background-color: #f5f5f5;
+            border-bottom: 1px solid#ccc;
+        }
+
+        .bc-social-buttons li {
+            display: inline-block;
+            line-height: 1;
+            color: #555;
+        }
+
+        .bc-social-buttons>li+li:before {
+            padding: 0 10px;
+            color: #ccc;
+            content: "|";
+        }
+
+        .bc-social-buttons li a {
+            color: #555;
+        }
+
+        .bc-social-buttons li i {
+            display: inline-block;
+            font-size: 23px;
+        }
+
+        .bc-social-buttons .social-weibo:hover a {
+            color: red;
+        }
+
+        .center {
+            width: 100%;
+            padding-top: 20px;
+            text-align: center;
+        }
+
+        .main-box {
+            width: 100%;
+            margin: 10px auto;
+            text-align: center;
+            /* border: 10px solid green; */
+        }
+
+        .clearfixed {
+            contain: "";
+            display: table;
+            clear: both;
+        }
+
+        .main-box .item {
+            display: inline-block;
+            vertical-align: middle;
+            width: 310px;
+            height: 360px;
+            margin: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .main-box .item img {
+            width: 98%;
+            margin-top: 2px;
+        }
+
+        .main-box .item .text h3 {
+            color: blue;
+        }
+
+        @media screen and (max-width:768px) {
+            .main-box .item {
+                width: 300px;
+                margin: 20px 200px;
+            }
+        }
+
+        @media screen and (min-width:768px) and (max-width:1000px) {
+            .main-box .item {
+                width: 280px;
+                margin: 20px 36px;
+            }
+        }
+
+        .footer {
+            width: 100%;
+            margin-top: 50px;
+            border-top: 1px solid #ccc;
+        }
+
+        .footer .left {
+            display: inline-table;
+            margin-left: 80px;
+            width: 600px;
+            padding: 20px;
+            /* border: 2px solid blue; */
+        }
+
+        .footer .right {
+            display: inline-table;
+            text-align: center;
+            width: 600px;
+            /* border: 2px solid red; */
+        }
+
+        .footer .right ul {
+            display: inline-table;
+            padding: 20px;
+            /* border:2px solid black; */
+        }
+
+        .footer .right ul h4 {
+            text-align: left;
+            font-weight: 500;
+            color: blue;
+        }
+
+        .footer .right ul li {
+            text-align: left;
+        }
+
+        @media screen and (max-width:768px) {
+            .footer .right ul {
+                display: block;
+            }
+
+            .footer .left {
+                margin-left: 0;
+            }
+        }
+
+        @media screen and (min-width:768px) and (max-width:1000px) {
+
+            .footer .right,
+            .footer .left {
+                float: left;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar  navbar-fixed-top navbar-inverse">
+        <div class="container">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="#" class="navbar-brand hidden-sm">Bootstrap中文网</a>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="hidden-sm hidden-md"><a href="#">Bootstrap2中文文档</a></li>
+                        <li><a href="#">Bootstrap3中文文档</a></li>
+                        <li><a href="#">Bootstrap4中文文档</a></li>
+                        <li><a href="#">Less教程</a></li>
+                        <li><a href="#">jQuery API</a></li>
+                        <li><a href="#">网站实例</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="hidden-sm hidden-md">
+                            <a href="#">关于</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="jumbotron masthead">
+        <div class="container">
+            <h1>Bootstrap</h1>
+            <p>简洁、直观、强悍的前端开发框架，让web开发更迅速、简单。</p>
+            <p><a class="btn btn-primary btn-lg" href="#" role="button">Bootstrap2中文文档(v3.3.7)</a></p>
+            <ul>
+                <li><a href="#">Bootstrap2中文文档(v2.3.2)</a></li>
+            </ul>
+        </div>
+    </div>
+    <ul class="bc-social-buttons">
+        <li class="social-forum">
+            <i class="iconfont icon-wechat"></i>
+            <a href="#">
+                Bootstrap问答社区
+            </a>
+        </li>
+        <li class="social-weibo">
+
+            <a href="#">
+                <i class="iconfont icon-weibo"></i>新浪微博：@Bootstrap中文网</a>
+        </li>
+    </ul>
+    <div class="center">
+        <h2>Bootstrap相关优质项目推荐</h2>
+        <p>这些项目或者是对Bootstrap进行了有益的补充，或者是基于Bootstrap开发的</p>
+    </div>
+    <div class="main-box clearfixed">
+        <div class="item">
+            <img src="./img/expo.png" alt="">
+            <div class="text">
+                <h3>优站精选</h3>
+                <p>Bootstrap 网站实例</p>
+                <p>Bootstrap 优站精选频道收集了众多基于 Bootstrap 构建、设计精美的、有创意的网站。</p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="./img/webpack.png" alt="">
+            <div class="text">
+                <h3>Webpack</h3>
+                <p>是前端资源模块化管理和打包工具</p>
+                <p>Webpack 是当下最热门的前端资源模块化管理和打包工具。它可以将许多松散的模块按照依赖和规则打包成符合生产环境部署的前端资源。</p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="./img/react.png" alt="">
+            <div class="text">
+                <h3>React</h3>
+                <p>用于构建用户界面的 JavaScript 框架</p>
+                <p>React 起源于 Facebook 的内部项目，是一个用于构建用户界面的 JavaScript 库。</p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="./img/typescript.png" alt="">
+            <div class="text">
+                <h3>TypeScript </h3>
+                <p>中文手册</p>
+                <p>TypeScript 是由微软开源的编程语言。它是 JavaScript 的一个超集，而且本质上向这个语言添加了可选的静态类型和基于类的面向对象编程。</p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="./img/jqueryapi.png" alt="">
+            <div class="text">
+                <h3>jQuery API </h3>
+                <p>中文手册</p>
+                <p>根据最新的 jQuery 1.11.x 和 2.1.x 版本翻译的 jQuery API 中文文档/手册。</p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="./img/nextjs.png" alt="">
+            <div class="text">
+                <h3>jQuery API </h3>
+                <p>中文手册</p>
+                <p>Next.js 是一个轻量级的 React 服务端渲染应用框架。</p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="./img/babeljs.png" alt="">
+            <div class="text">
+                <h3>Babel </h3>
+                <p>是一个 JavaScript 编译器。</p>
+                <p>Babel 是一个 JavaScript 编译器。Babel 通过语法转换器支持最新版本的 JavaScript 语法。</p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="./img/nodejs.png" alt="">
+            <div class="text">
+                <h3>Node.js </h3>
+                <p>中文文档 / 手册</p>
+                <p>Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。Node.js 使用了一个事件驱动、非阻塞式 I/O 的模型，使其轻量又高效。</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer clearfix">
+        <div class="left">
+            <img src="./img/logo.png" alt="">
+            <p>我们一直致力于为广大开发者提供更多的优质技术文档和辅助开发工具！</p>
+        </div>
+        <div class="right">
+            <ul>
+                <h4>关于</h4>
+                <li>关于我们</li>
+                <li>广告合作</li>
+                <li>友情链接</li>
+                <li>招聘</li>
+            </ul>
+            <ul>
+                <h4>练习方式</h4>
+                <li>新浪微博</li>
+                <li>电子邮件</li>
+            </ul>
+            <ul>
+                <h4>旗下网站</h4>
+                <li>Laravel中文网站</li>
+                <li>Ghost中国</li>
+                <li>BootCDN</li>
+                <li>Packagist中国镜像</li>
+                <li>燃腾教育</li>
+            </ul>
+            <ul>
+                <h4>赞助商</h4>
+                <li>猫云</li>
+                <li>京东云</li>
+                <li>又拍云</li>
+            </ul>
+        </div>
+    </div>
+    <script src="./jquery.min.js"></script>
+    <script src="./bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+</body>
+
+</html>
